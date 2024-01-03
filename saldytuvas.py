@@ -18,8 +18,6 @@ BONUS:
 """
 
 # Ideda produktą
-=======
->>>>>>> b86a9b17c56336da9f00cb8ffeb4b39d15293e22
 def prideti_produkta(saldytuve, produktas, kiekis):
     if produktas in saldytuve:
         saldytuve[produktas] += kiekis
@@ -106,3 +104,4 @@ def patikrinti_kieki():
     pass
 def ispausdinti_turini():
     pass
+nepavyko
