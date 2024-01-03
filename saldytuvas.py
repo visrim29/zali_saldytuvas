@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """ Komandinio darbo užduotis
 ===[ Šaldytuvas ]===
 
@@ -86,3 +87,13 @@ while True:
             print(f"Trūksta {produktas} šaldytuve")
     elif pasirinkimas.startswith('5'):
         spausdinti_saldytuva(saldytuve)
+=======
+def prideti_produkta():
+    pass
+def isimti_produkta():
+    pass
+def patikrinti_kieki():
+    pass
+def ispausdinti_turini():
+    pass
+>>>>>>> ec982dd9a20af21a86df1197248e78f8f86fb15e
