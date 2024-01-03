@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 """ Komandinio darbo užduotis
 ===[ Šaldytuvas ]===
 
@@ -19,12 +20,19 @@ BONUS:
 """
 
 # Ideda produktą
+=======
+>>>>>>> b86a9b17c56336da9f00cb8ffeb4b39d15293e22
 def prideti_produkta(saldytuve, produktas, kiekis):
     if produktas in saldytuve:
         saldytuve[produktas] += kiekis
     else:
         saldytuve[produktas] = kiekis
+<<<<<<< HEAD
 # Išmeta produktą
+=======
+
+# Išima produktą
+>>>>>>> b86a9b17c56336da9f00cb8ffeb4b39d15293e22
 def isimti_produkta(saldytuve, produktas, kiekis):
     if produktas in saldytuve:
         if saldytuve[produktas] >= kiekis:
@@ -33,17 +41,27 @@ def isimti_produkta(saldytuve, produktas, kiekis):
             print(f"Kieko nepakanka: {produktas}")
     else:
         print(f"Produktas nerastas: {produktas}")
+<<<<<<< HEAD
+=======
+
+>>>>>>> b86a9b17c56336da9f00cb8ffeb4b39d15293e22
 # Patikrina produktų kiekį šaldytuve
 def patikrinti_kieki(saldytuve, produktas, reik_kiekis):
     if produktas in saldytuve:
         return saldytuve[produktas] >= reik_kiekis
     else:
         return False
+<<<<<<< HEAD
 # Printina kas yra šaldytuve kai tikrinama vardotojo
+=======
+
+# Spausdina šaldytuvo turinį
+>>>>>>> b86a9b17c56336da9f00cb8ffeb4b39d15293e22
 def spausdinti_saldytuva(saldytuve):
     print("Šaldytuve yra: ")
     for produktas, kiekis in saldytuve.items():
         print(f"{produktas}: {kiekis}")
+<<<<<<< HEAD
 # Patikrina visą šaldytuvą
 def patikrinti_saldytuva(saldytuve, vidus):
     sarasas = {}
@@ -63,6 +81,32 @@ def patikrinti_saldytuva(saldytuve, vidus):
         print("1")
 
 saldytuve = {}
+=======
+
+# Patikrina ar yra pakankamai produktų receptui
+def patikrinti_recepta(saldytuve, receptas):
+    trukstami_produktai = {}
+
+    for produktas, reik_kiekis in receptas.items():
+        if produktas in saldytuve:
+            trukstantis_kiekis = reik_kiekis - saldytuve[produktas]
+            if trukstantis_kiekis > 0:
+                trukstami_produktai[produktas] = trukstantis_kiekis
+        else:
+            trukstami_produktai[produktas] = reik_kiekis
+
+    if trukstami_produktai:
+        print("Trūksta šių produktų: ")
+        for produktas, trukstantis_kiekis in trukstami_produktai.items():
+            print(f"{produktas}: {trukstantis_kiekis}")
+    else:
+        print("Receptas išeina!")
+
+# Šaldytuvo pradinis sąrašas
+saldytuve = {}
+# Receptas
+receptas = {"Suris": 0.5, "Pomidoras": 2, "Duona": 0.4}
+>>>>>>> b86a9b17c56336da9f00cb8ffeb4b39d15293e22
 
 while True:
     print('===[ Šaldytuvas ]===')
@@ -70,21 +114,39 @@ while True:
     print('1: Pridėti produktą')
     print('2: Išimti produktą')
     print('3: Patikrinti kiekį šaldytuve')
+<<<<<<< HEAD
+=======
+    print('4: Patikrinti receptą')
+>>>>>>> b86a9b17c56336da9f00cb8ffeb4b39d15293e22
     print('5: Išspausdinti šaldytuvo turinį')
     pasirinkimas = input('Pasirinkimas: ')
     if pasirinkimas.startswith('0'):
         break
     elif pasirinkimas.startswith('1'):
+<<<<<<< HEAD
         prideti_produkta(saldytuve, input('Produktas: '), float(input('Kiekis: ')))
     elif pasirinkimas.startswith('2'):
         isimti_produkta(saldytuve, input('Produktas: '), float(input('Kiekis: ')))
     elif pasirinkimas.startswith('3'):
         produktas = input('Produktas: ')
         reik_kiekis = float(input("Reikiamas kiekis: "))
+=======
+        produktas = input('Produktas: ')
+        kiekis = float(input('Kiekis: '))
+        prideti_produkta(saldytuve, produktas, kiekis)
+    elif pasirinkimas.startswith('2'):
+        produktas = input('Produktas: ')
+        kiekis = float(input('Kiekis: '))
+        isimti_produkta(saldytuve, produktas, kiekis)
+    elif pasirinkimas.startswith('3'):
+        produktas = input('Produktas: ')
+        reik_kiekis = float(input("Patikrinkite kiekį: "))
+>>>>>>> b86a9b17c56336da9f00cb8ffeb4b39d15293e22
         if patikrinti_kieki(saldytuve, produktas, reik_kiekis):
             print(f"{produktas} yra pakankamai.")
         else:
             print(f"Trūksta {produktas} šaldytuve")
+<<<<<<< HEAD
     elif pasirinkimas.startswith('5'):
         spausdinti_saldytuva(saldytuve)
 =======
@@ -97,3 +159,9 @@ def patikrinti_kieki():
 def ispausdinti_turini():
     pass
 >>>>>>> ec982dd9a20af21a86df1197248e78f8f86fb15e
+=======
+    elif pasirinkimas.startswith('4'):
+        patikrinti_recepta(saldytuve, receptas)
+    elif pasirinkimas.startswith('5'):
+        spausdinti_saldytuva(saldytuve)
+>>>>>>> b86a9b17c56336da9f00cb8ffeb4b39d15293e22
