@@ -106,9 +106,3 @@ def patikrinti_kieki():
     pass
 def ispausdinti_turini():
     pass
-=======
-    elif pasirinkimas.startswith('4'):
-        patikrinti_recepta(saldytuve, receptas)
-    elif pasirinkimas.startswith('5'):
-        spausdinti_saldytuva(saldytuve)
->>>>>>> b86a9b17c56336da9f00cb8ffeb4b39d15293e22
