@@ -28,9 +28,12 @@ def patikrinti_kieki(saldytuve, produktas, reik_kiekis):
 # Spausdina šaldytuvo turinį
 def spausdinti_saldytuva(saldytuve):
     print("Šaldytuve yra: ")
-    for produktas, kiekis in saldytuve.items():
-        print(f"{produktas}: {kiekis}")
-
+    if len(saldytuve.items()) == 0:
+        print("Šaldytuvas tuščias")
+    else:
+        for produktas, kiekis in saldytuve.items():
+            print(f"{produktas}: {kiekis}")
+    
 # Patikrina ar yra pakankamai produktų receptui
 def patikrinti_recepta(saldytuve, receptas):
     trukstami_produktai = {}
