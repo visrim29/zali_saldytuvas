@@ -35,7 +35,7 @@ def skaiciuoti_balansa():
     balansas = sum(biudzetas.values())
     print(f"Biudžeto balansas: {balansas}")
 
-# Demonstrate the functionality
+# funkcijos
 prideti_pajamas("Atlyginimas", 1000)
 prideti_pajamas("Alga", 500)
 prideti_islaidas("Maistas", 300)

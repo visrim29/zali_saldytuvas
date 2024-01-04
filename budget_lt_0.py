@@ -17,7 +17,7 @@ def prideti_pajamas():
     paskirtis = input("Įveskite pajamų paskirtį: ")
     suma = float(input("Įveskite pajamų sumą: "))
     if paskirtis in biudzetas:
-        biudzetas[paskirtis] += suma
+        biudzetas[paskirtis] = biudzetas[paskirtis] + suma
     else:
         biudzetas[paskirtis] = suma
 
@@ -25,7 +25,7 @@ def prideti_islaidas():
     paskirtis = input("Įveskite išlaidų paskirtį: ")
     suma = float(input("Įveskite išlaidų sumą: "))
     if paskirtis in biudzetas:
-        biudzetas[paskirtis] -= suma
+        biudzetas[paskirtis] = biudzetas[paskirtis] - suma
     else:
         biudzetas[paskirtis] = -suma
 
