@@ -1,3 +1,6 @@
+#sita versija gera, nei saldytuvas2.py
+
+# Ideda produkta
 def prideti_produkta(saldytuve, produktas, kiekis):
     if produktas in saldytuve:
         saldytuve[produktas] += kiekis
