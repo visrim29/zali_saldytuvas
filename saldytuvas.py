@@ -3,16 +3,20 @@ def prideti_produkta(saldytuve, produktas, kiekis):
         saldytuve[produktas] += kiekis
     else:
         saldytuve[produktas] = kiekis
+    return saldytuve
 
 # Išima produktą
 def isimti_produkta(saldytuve, produktas, kiekis):
     if produktas in saldytuve:
         if saldytuve[produktas] >= kiekis:
             saldytuve[produktas] -= kiekis
+            if saldytuve[produktas] == 0:
+                del saldytuve [produktas]
         else:
             print(f"Kieko nepakanka: {produktas}")
     else:
         print(f"Produktas nerastas: {produktas}")
+    return saldytuve
 
 # Patikrina produktų kiekį šaldytuve
 def patikrinti_kieki(saldytuve, produktas, reik_kiekis):
@@ -65,11 +69,11 @@ while True:
     elif pasirinkimas.startswith('1'):
         produktas = input('Produktas: ')
         kiekis = float(input('Kiekis: '))
-        prideti_produkta(saldytuve, produktas, kiekis)
+        saldytuve = prideti_produkta(saldytuve, produktas, kiekis)
     elif pasirinkimas.startswith('2'):
         produktas = input('Produktas: ')
         kiekis = float(input('Kiekis: '))
-        isimti_produkta(saldytuve, produktas, kiekis)
+        saldytuve = isimti_produkta(saldytuve, produktas, kiekis)
     elif pasirinkimas.startswith('3'):
         produktas = input('Produktas: ')
         reik_kiekis = float(input("Patikrinkite kiekį: "))
