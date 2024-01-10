@@ -2,7 +2,7 @@ class Product:
     def __init__(self, name, quantity, **kwargs):
         self.name = name
         self.quantity = quantity
-        self.unit_of_measurment = 'unit' 
+        self.unit_of_measurment = 'Unit'
         for key, value in kwargs.items():
             setattr(self,key,value)
 
@@ -69,25 +69,27 @@ class Fridge:
         
     def check_recipe(self, recipe:Recipe):
         missing_product = []
-        for product_recipe in recipe.ingredients:
-            product_id, product_fridge = self.check_product(product_recipe.name)
+        for ingredient in recipe.ingredients:
+            product_id, product_fridge = self.check_product(ingredient.name)
             if  product_fridge is not None:
-                missing_quantity = product_fridge.quantity - product_recipe.quantity
+                missing_quantity = product_fridge.quantity - ingredient.quantity
                 if missing_quantity < 0:
-                    missing_product.append(Product(product_recipe.name, missing_product))
+                    missing_product.append(Product(ingredient.name, abs(missing_quantity)))
             else:
-                missing_product.append(product_recipe)
+                missing_product.append(ingredient)
         if len(missing_product) == 0:
             print("You have the ingredients for the recipe")
         else:
-            print(f"Lost products : {missing_product}")
-
-
+            print(f"Missing products : {missing_product}")
+    
 def main():
     fridge = Fridge()
     recipe = Recipe()
     while True:
-        print("Fridge\n0: exit\n1: add\n2: remove\n3: check quantity\n4: print fridge\n5: check recipe\n6: create recipe\n7: change product quantity in recipe\n8: remove product from recipe\n9: peek recipe")
+        print("""Fridge\n0: exit\n1: add\n2: remove
+3: check quantity\n4: print fridge\n5: check recipe
+6: create recipe\n7: change product quantity in recipe
+8: remove product from recipe\n9: peek recipe""")
         choice = input("Choose a number: ")
         if choice.startswith('0'):
             break
@@ -118,5 +120,5 @@ def main():
         elif choice.startswith('8'):
             recipe.remove_ingredient(int(input("Product: "))-1)   
         elif choice.startswith('9'):
-            print(recipe)       
+            print(recipe)
 main()
