@@ -1,3 +1,5 @@
+# zaliu saldytuvas panaudojant class ir kitus budus!!!
+
 class Product:
     def __init__(self, name, quantity, **kwargs):
         self.name = name
