@@ -1,4 +1,6 @@
 
+from sub_paketas_product import product as produktas
+
 class Recipe:
     ingredients = []
     instructions = []
@@ -6,7 +8,7 @@ class Recipe:
     def __str__(self):
         return f"{self.ingredients}"
 
-    def add_ingredient(self, product: Product):
+    def add_ingredient(self, product: produktas):
         self.ingredients.append(product)
 
     def change_ingredient_quantity(self, ingredient_id, new_quantity):

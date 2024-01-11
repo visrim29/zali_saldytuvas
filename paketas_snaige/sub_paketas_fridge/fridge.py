@@ -1,4 +1,7 @@
 
+from sub_paketas_product import product as produktas
+from sub_paketas_recipe import recipe as receptas
+
 class Fridge:
     contents = []
 
@@ -8,19 +11,19 @@ class Fridge:
                 return product_id,product
         return None, None
     
-    def check_product_quantity(self, name:Product, quantity:float):
+    def check_product_quantity(self, name:produktas, quantity:float):
         product_id, product = self.check_product(name)
         if product is not None and quantity <= product.quantity:
             return print(f"you have {product.quantity} {name} ")
         else:
             return print(f"you dont have {quantity} {name} you have {product.quantity}")
         
-    def add_product(self, name, quantity:Product):
+    def add_product(self, name, quantity:produktas):
         product_id, product = self.check_product(name)
         if product is not None:
             product.quantity += quantity
         else:
-            self.contents.append(Product(name,quantity))
+            self.contents.append(produktas(name,quantity))
 
     def remove_product(self, name:str, quantity:float):
         product_id, product = self.check_product(name)
@@ -36,14 +39,14 @@ class Fridge:
         for product in self.contents:
             print(f"{product}")
         
-    def check_recipe(self, recipe:Recipe):
+    def check_recipe(self, recipe:receptas):
         missing_product = []
         for ingredient in recipe.ingredients:
             product_id, product_fridge = self.check_product(ingredient.name)
             if  product_fridge is not None:
                 missing_quantity = product_fridge.quantity - ingredient.quantity
                 if missing_quantity < 0:
-                    missing_product.append(Product(ingredient.name, abs(missing_quantity)))
+                    missing_product.append(produktas(ingredient.name, abs(missing_quantity)))
             else:
                 missing_product.append(ingredient)
         if len(missing_product) == 0:
