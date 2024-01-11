@@ -1,11 +1,11 @@
 
-from sub_paketas_fridge.fridge import Fridge as saldytuvas
-from sub_paketas_product import product as produktas
-from sub_paketas_recipe.recipe import Recipe as receptas
+from sub_paketas_fridge.fridge import *
+from sub_paketas_product.product import *
+from sub_paketas_recipe.recipe import * 
 
 def main():
-    fridge = saldytuvas()
-    recipe = receptas()
+    fridge = Fridge()
+    recipe = Recipe()
     while True:
         print("""Fridge\n0: exit\n1: add\n2: remove
 3: check quantity\n4: print fridge\n5: check recipe
@@ -35,7 +35,7 @@ def main():
         elif choice.startswith('6'):
             ammount = int(input("Ammount of ingredients: "))
             for product in range(ammount):
-                recipe.add_ingredient(produktas(input("Product: "), float(input("Product quantity: ")))) # cia produktas pakeistas is Product
+                recipe.add_ingredient(Product(input("Product: "), float(input("Product quantity: "))))
         elif choice.startswith('7'):
             recipe.change_ingredient_quantity(int(input("Product: "))-1, float(input("Quantity :")))
         elif choice.startswith('8'):
