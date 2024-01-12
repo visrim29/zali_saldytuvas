@@ -1,43 +1,51 @@
-def prideti_produkta(saldytuve, produktas, kiekis):
-    if produktas in saldytuve:
-        saldytuve[produktas] += kiekis
-    else:
-        saldytuve[produktas] = kiekis
+### Pridedi produktą
 
-# Išima produktą
-def isimti_produkta(saldytuve, produktas, kiekis):
-    if produktas in saldytuve:
-        if saldytuve[produktas] >= kiekis:
-            saldytuve[produktas] -= kiekis
+def prideti_produkta(saldytuvas, produktas, kiekis):
+    if produktas in saldytuvas:
+        saldytuvas[produktas] += kiekis
+    else:
+        saldytuvas[produktas] = kiekis
+    return saldytuvas
+
+### Išimti produktą
+        
+def isimti_produkta(saldytuvas, produktas, kiekis):
+    if produktas in saldytuvas:
+        if saldytuvas[produktas] >= kiekis:
+            saldytuvas[produktas] -= kiekis
         else:
             print(f"Kieko nepakanka: {produktas}")
     else:
         print(f"Produktas nerastas: {produktas}")
+    return saldytuvas
 
-# Patikrina produktų kiekį šaldytuve
-def patikrinti_kieki(saldytuve, produktas, reik_kiekis):
-    if produktas in saldytuve:
-        return saldytuve[produktas] >= reik_kiekis
+### Patikrinti produktų kiekį šaldytuve
+        
+def patikrinti_kieki(saldytuvas, produktas, reikalingas_kiekis):
+    if produktas in saldytuvas:
+        return saldytuvas[produktas] >= reikalingas_kiekis
     else:
         return False
 
-# Spausdina šaldytuvo turinį
-def spausdinti_saldytuva(saldytuve):
+### Spausdinti šaldytuvo turinį
+    
+def spausdinti_saldytuva(saldytuvas):
     print("Šaldytuve yra: ")
-    for produktas, kiekis in saldytuve.items():
+    for produktas, kiekis in saldytuvas.items():
         print(f"{produktas}: {kiekis}")
 
-# Patikrina ar yra pakankamai produktų receptui
-def patikrinti_recepta(saldytuve, receptas):
+### Patikrinti ar yra pakankamai produktų receptui
+        
+def patikrinti_recepta(saldytuvas, receptas):
     trukstami_produktai = {}
 
-    for produktas, reik_kiekis in receptas.items():
-        if produktas in saldytuve:
-            trukstantis_kiekis = reik_kiekis - saldytuve[produktas]
+    for produktas, reikalingas_kiekis in receptas.items():
+        if produktas in saldytuvas:
+            trukstantis_kiekis = reikalingas_kiekis - saldytuvas[produktas]
             if trukstantis_kiekis > 0:
                 trukstami_produktai[produktas] = trukstantis_kiekis
         else:
-            trukstami_produktai[produktas] = reik_kiekis
+            trukstami_produktai[produktas] = reikalingas_kiekis
 
     if trukstami_produktai:
         print("Trūksta šių produktų: ")
@@ -46,9 +54,12 @@ def patikrinti_recepta(saldytuve, receptas):
     else:
         print("Receptas išeina!")
 
-# Šaldytuvo pradinis sąrašas
-saldytuve = {}
-# Receptas
+### Šaldytuvo sąrašas
+        
+saldytuvas = {}
+
+### Receptas
+
 receptas = {"Suris": 0.5, "Pomidoras": 2, "Duona": 0.4}
 
 while True:
@@ -65,19 +76,19 @@ while True:
     elif pasirinkimas.startswith('1'):
         produktas = input('Produktas: ')
         kiekis = float(input('Kiekis: '))
-        prideti_produkta(saldytuve, produktas, kiekis)
+        saldytuvas = prideti_produkta(saldytuvas, produktas, kiekis)
     elif pasirinkimas.startswith('2'):
         produktas = input('Produktas: ')
         kiekis = float(input('Kiekis: '))
-        isimti_produkta(saldytuve, produktas, kiekis)
+        saldytuvas = isimti_produkta(saldytuvas, produktas, kiekis)
     elif pasirinkimas.startswith('3'):
         produktas = input('Produktas: ')
-        reik_kiekis = float(input("Patikrinkite kiekį: "))
-        if patikrinti_kieki(saldytuve, produktas, reik_kiekis):
+        reikalingas_kiekis = float(input("Patikrinkite kiekį: "))
+        if patikrinti_kieki(saldytuvas, produktas, reikalingas_kiekis):
             print(f"{produktas} yra pakankamai.")
         else:
             print(f"Trūksta {produktas} šaldytuve")
     elif pasirinkimas.startswith('4'):
-        patikrinti_recepta(saldytuve, receptas)
+        patikrinti_recepta(saldytuvas, receptas)
     elif pasirinkimas.startswith('5'):
-        spausdinti_saldytuva(saldytuve)
+        spausdinti_saldytuva(saldytuvas)
