@@ -1,5 +1,5 @@
 
-from sub_paketas_product.product import *
+from sub_paketas_product.product import Product
 
 class Recipe:
     ingredients = []

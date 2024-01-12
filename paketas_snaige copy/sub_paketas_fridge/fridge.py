@@ -1,6 +1,6 @@
 
-from sub_paketas_product.product import *
-from sub_paketas_recipe.recipe import *
+from sub_paketas_product.product import Product
+from sub_paketas_recipe.recipe import Recipe
 
 class Fridge:
     contents = []

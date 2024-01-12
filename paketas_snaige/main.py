@@ -1,6 +1,6 @@
 
 from sub_paketas_fridge.fridge import Fridge as saldytuvas
-from sub_paketas_product import product as produktas
+from sub_paketas_product.product import Product as produktas
 from sub_paketas_recipe.recipe import Recipe as receptas
 
 def main():

@@ -1,7 +1,7 @@
 
-from sub_paketas_fridge.fridge import *
-from sub_paketas_product.product import *
-from sub_paketas_recipe.recipe import * 
+from sub_paketas_fridge.fridge import Fridge
+from sub_paketas_product.product import Product
+from sub_paketas_recipe.recipe import Recipe
 
 def main():
     fridge = Fridge()
